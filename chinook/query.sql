@@ -148,7 +148,7 @@ FROM
 (
 SELECT c.CustomerId AS CustomerId,
 	CASE
-		WHEN datediff('2025-12-22', max(inv.invoiceDate)) <= 30 THEN 10
+	WHEN datediff('2025-12-22', max(inv.invoiceDate)) <= 30 THEN 10
         WHEN datediff('2025-12-22', max(inv.invoiceDate)) <= 180 THEN 5
         ELSE 1
         END as Recency
