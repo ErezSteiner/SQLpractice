@@ -132,4 +132,65 @@ LEFT OUTER JOIN yearly_sales AS previous_year
 # Using the CTE allowed me to easily do the yoy change calculation by joining the CTE to itself
 # another benefit is that the results are not aggregated, so I can do further filtering without having to wrap in a SQ
 # Like seeing only a specific year, genre, or to only see changes that are above/below a certain percentage
-# I did a case statement to avoid having any mislabeled NULLs, also made sure to correctly label initial year, since giving it a label of 0% could be misleading
+# I did a case statement to avoid having any mislabeled NULLs, also made sure to correctly label initial year, since giving it a label of 0% could be misleading.
+
+#RFM analysis of customers
+#need to see whats the time range for this DB to decide on recency scores
+
+SELECT max(InvoiceDate), min(InvoiceDate)
+FROM invoice;
+#2011-01-01 to 2025-12-22
+
+
+SELECT sqr.CustomerId, sqr.Recency, sqf.Frequency, sqm.Monetary_value,
+	(sqr.Recency + sqf.Frequency + sqm.Monetary_value) AS RFM_score
+FROM
+(
+SELECT c.CustomerId AS CustomerId,
+	CASE
+		WHEN datediff('2025-12-22', max(inv.invoiceDate)) <= 30 THEN 10
+        WHEN datediff('2025-12-22', max(inv.invoiceDate)) <= 180 THEN 5
+        ELSE 1
+        END as Recency
+FROM invoice AS inv
+INNER JOIN customer AS c
+	ON c.CustomerId = inv.CustomerId
+GROUP BY c.CustomerId
+) AS sqr
+INNER JOIN
+(
+SELECT c.CustomerId AS CustomerId,
+	CASE
+		WHEN count(inv.InvoiceId) >= 10 THEN 10
+		WHEN count(inv.InvoiceId) >= 3 THEN 5
+        ELSE 1
+        END AS Frequency
+FROM invoice AS inv
+INNER JOIN customer AS c
+	ON c.CustomerId = inv.CustomerId
+WHERE inv.InvoiceDate BETWEEN '2024-12-22' AND '2025-12-22'
+GROUP BY c.CustomerId
+) AS sqf
+ON sqr.CustomerId = sqf.CustomerId
+INNER JOIN
+(
+SELECT c.CustomerId AS CustomerId,
+	CASE
+		WHEN SUM(inv.Total) >= 20 THEN 10
+		WHEN SUM(inv.Total) >= 10 THEN 5
+        ELSE 1
+        END AS Monetary_value
+FROM invoice AS inv
+INNER JOIN customer AS c
+	ON c.CustomerId = inv.CustomerId
+WHERE inv.InvoiceDate BETWEEN '2024-12-22' AND '2025-12-22'
+GROUP BY c.CustomerId) AS sqm
+on sqr.CustomerId = sqm.CustomerId
+ORDER BY sqr.customerId;
+
+#Query breakdown
+#The purpose of this query is to assign score based on the RFM metrics: recency, frequency, and monetary value.
+#Customers were given a score for each metric using a case statement, and all the subqueries were joined.
+#It's possible to further segment this query, for example filtering for high RFM scores to identify loyal customers,
+#Or to filter for customers with a high monetary value but low recency to identify people who are leaving the platform.
+#The dates inside the various SQs can be easily adjusted with business needs, making this a very flexible query.
