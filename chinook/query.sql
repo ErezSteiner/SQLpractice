@@ -135,13 +135,7 @@ LEFT OUTER JOIN yearly_sales AS previous_year
 # I did a case statement to avoid having any mislabeled NULLs, also made sure to correctly label initial year, since giving it a label of 0% could be misleading.
 
 #RFM analysis of customers
-#need to see whats the time range for this DB to decide on recency scores
-
-SELECT max(InvoiceDate), min(InvoiceDate)
-FROM invoice;
-#2011-01-01 to 2025-12-22
-
-
+	
 SELECT sqr.CustomerId, sqr.Recency, sqf.Frequency, sqm.Monetary_value,
 	(sqr.Recency + sqf.Frequency + sqm.Monetary_value) AS RFM_score
 FROM
