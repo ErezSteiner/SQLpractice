@@ -217,7 +217,7 @@ SELECT current_year.year, current_year.Artist, current_year.num_tracks_sold,
 		THEN '0%'
 			ELSE
 			CONCAT(ROUND(((current_year.num_tracks_sold - previous_year.num_tracks_sold) / previous_year.num_tracks_sold) * 100, 2), '%') END as yoy_change,
-            row_number() over (partition by current_year.year ORDER BY current_year.num_tracks_sold DESC) AS yearly_sales_ranking
+            row_number() over (partition by current_year.year ORDER BY current_year.num_tracks_sold DESC) AS yearly_ranking
 FROM 
   yearly_artist_num_tracks AS current_year
 LEFT OUTER JOIN yearly_artist_num_tracks AS previous_year 
@@ -226,4 +226,7 @@ LEFT OUTER JOIN yearly_artist_num_tracks AS previous_year
 )
 SELECT *
 FROM ranked_artists
-WHERE yearly_sales_ranking <=5;
+WHERE yearly_ranking <=5;
+
+#need to do:
+#query breakdown
