@@ -1,4 +1,4 @@
-year,Artist,num_tracks_sold,yoy_change,yearly_sales_ranking
+year,Artist,num_tracks_sold,yoy_change,yearly_ranking
 2021,"Iron Maiden",34,"Intial year",1
 2021,"Led Zeppelin",23,"Intial year",2
 2021,Metallica,22,"Intial year",3
