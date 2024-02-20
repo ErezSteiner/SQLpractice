@@ -188,3 +188,42 @@ ORDER BY sqr.customerId;
 #It's possible to further segment this query, for example filtering for high RFM scores to identify loyal customers,
 #Or to filter for customers with a high monetary value but low recency to identify people who are leaving the platform.
 #The dates inside the various SQs can be easily adjusted with business needs, making this a very flexible query.
+
+
+#top 5 yearly number of tracks sold by artist with ranking and yoy change
+
+WITH yearly_artist_num_tracks AS
+(
+SELECT EXTRACT(YEAR from inv.InvoiceDate) AS year, artst.name AS Artist, SUM(invline.Quantity) AS num_tracks_sold
+FROM invoiceline AS invline
+	INNER JOIN track AS t
+		ON invline.TrackId = t.TrackId
+	INNER JOIN album AS albm 
+		ON t.AlbumId = albm.AlbumId
+	INNER JOIN artist AS artst
+		ON albm.ArtistId = artst.ArtistId
+	INNER JOIN invoice AS inv
+		ON invline.InvoiceId = inv.InvoiceId
+GROUP BY artst.Name, EXTRACT(YEAR from inv.InvoiceDate)
+),
+ranked_artists AS
+(
+SELECT current_year.year, current_year.Artist, current_year.num_tracks_sold,
+		CASE
+			WHEN current_year.year = '2021'
+		THEN 'Intial year'
+			WHEN 
+			((current_year.num_tracks_sold - previous_year.num_tracks_sold) / previous_year.num_tracks_sold) * 100  IS NULL
+		THEN '0%'
+			ELSE
+			CONCAT(ROUND(((current_year.num_tracks_sold - previous_year.num_tracks_sold) / previous_year.num_tracks_sold) * 100, 2), '%') END as yoy_change,
+            row_number() over (partition by current_year.year ORDER BY current_year.num_tracks_sold DESC) AS yearly_sales_ranking
+FROM 
+  yearly_artist_num_tracks AS current_year
+LEFT OUTER JOIN yearly_artist_num_tracks AS previous_year 
+  ON current_year.Artist = previous_year.Artist
+	AND current_year.year = previous_year.year + 1
+)
+SELECT *
+FROM ranked_artists
+WHERE yearly_sales_ranking <=5;
