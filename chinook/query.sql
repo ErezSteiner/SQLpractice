@@ -232,3 +232,41 @@ WHERE yearly_ranking <=5;
 #This query uses two CTEs. the first one is essentially identical to the one in the yearly genre sales trend
 #The second CTE contains a similar yoy calculation that I used earlier in additional to a row_number window function.
 #the second CTE was wrapped as a CTE purely to allow it to be filtered.
+
+
+
+#popularity of songs and genres across the playlists
+
+#first to see how many tracks are in each playlist
+SELECT pln.name AS playlist_name, count(t.TrackId) AS tracks_in_pl
+FROM playlisttrack AS plt
+	INNER JOIN playlist AS pln
+		ON plt.PlaylistId = pln.PlaylistId
+	LEFT OUTER JOIN track AS t
+		ON plt.TrackId = t.TrackId	
+GROUP BY pln.name
+ORDER BY 2 DESC;
+
+
+#and the actual count of songs and genres
+
+SELECT t.Name AS track_name, COUNT(*) as pl_appearances
+FROM playlisttrack AS plt
+	INNER JOIN track AS t
+		ON plt.trackId = t.trackId
+	INNER JOIN playlist pl
+		ON plt.playlistid = pl.playlistid
+GROUP BY t.Name
+ORDER BY 2 DESC;
+
+SELECT g.Name AS genre_name, COUNT(*) as pl_appearances
+FROM playlisttrack AS plt
+	INNER JOIN track AS t
+		ON plt.trackId = t.trackId
+	INNER JOIN genre AS g
+		ON t.GenreId = g.GenreId
+	INNER JOIN playlist pl
+		ON plt.playlistid = pl.playlistid
+GROUP BY g.Name
+ORDER BY 2 DESC;
+
