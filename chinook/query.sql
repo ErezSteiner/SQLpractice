@@ -228,5 +228,7 @@ SELECT *
 FROM ranked_artists
 WHERE yearly_ranking <=5;
 
-#need to do:
 #query breakdown
+#This query uses two CTEs. the first one is essentially identical to the one in the yearly genre sales trend
+#The second CTE contains a similar yoy calculation that I used earlier in additional to a row_number window function.
+#the second CTE was wrapped as a CTE purely to allow it to be filtered.
