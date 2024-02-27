@@ -1,0 +1,10 @@
+customerId,CustomerFname,customerLname,trackName,trackId,payment,InvoiceDate
+48,Johannes,"Van der Berg","Rock And Roll All Nite",1576,0.99,"2024-02-09 00:00:00"
+49,Stanisław,Wójcik,"Immigrant Song",1577,0.99,"2024-02-22 00:00:00"
+49,Stanisław,Wójcik,Heartbreaker,1578,0.99,"2024-02-22 00:00:00"
+51,Joakim,Johansson,"Black Dog",1580,0.99,"2024-02-22 00:00:00"
+51,Joakim,Johansson,"Stairway To Heaven",1582,0.99,"2024-02-22 00:00:00"
+53,Phil,Hughes,"That's The Way",1584,0.99,"2024-02-23 00:00:00"
+53,Phil,Hughes,"Thank You",1586,0.99,"2024-02-23 00:00:00"
+53,Phil,Hughes,"Poor Tom",1588,0.99,"2024-02-23 00:00:00"
+53,Phil,Hughes,"Walter's Walk",1590,0.99,"2024-02-23 00:00:00"
