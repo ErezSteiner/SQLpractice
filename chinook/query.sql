@@ -234,7 +234,7 @@ WHERE yearly_ranking <=5;
 #the second CTE was wrapped as a CTE purely to allow it to be filtered.
 
 
-#All customers who bought tracks in the past month, including customer name and title of tracks, but only those bought less than 5 tracks
+#All customers who bought tracks in the past month, including customer name and title of tracks, but only those who bought less than 5 tracks
 
 WITH last_month AS 
 (
@@ -250,7 +250,7 @@ FROM invoiceline as line
 		ON c.CustomerId = inv.CustomerId
 WHERE inv.InvoiceDate BETWEEN DATE_SUB(CURDATE(), INTERVAL 30 DAY) AND CURDATE()
 )
-SELECT last_month.CustomerId, last_month.CustomerFname, CustomerLname,
+SELECT last_month.CustomerId, last_month.CustomerFname, last_month.CustomerLname,
 	last_month.TrackName, last_month.TrackId, (last_month.unitPrice * last_month.Quantity) AS payment,
     last_month.InvoiceDate
 from last_month
