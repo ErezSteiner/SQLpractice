@@ -234,39 +234,35 @@ WHERE yearly_ranking <=5;
 #the second CTE was wrapped as a CTE purely to allow it to be filtered.
 
 
+#All customers who bought tracks in the past month, including customer name and title of tracks, but only those bought less than 5 tracks
 
-#popularity of songs and genres across the playlists
+WITH last_month AS 
+(
+SELECT line.trackId AS trackId, line.UnitPrice AS unitPrice,
+ line.Quantity AS Quantity, inv.InvoiceDate AS InvoiceDate, t.Name AS trackName,
+ c.CustomerId AS customerId, c.FirstName AS CustomerFname, c.LastName AS customerLname
+FROM invoiceline as line
+	LEFT OUTER JOIN invoice AS inv
+		ON line.InvoiceId = inv.InvoiceId
+	LEFT OUTER JOIN TRACK AS t
+		ON t.TrackId = line.TrackId
+	LEFT OUTER JOIN customer AS c
+		ON c.CustomerId = inv.CustomerId
+WHERE inv.InvoiceDate BETWEEN DATE_SUB(CURDATE(), INTERVAL 30 DAY) AND CURDATE()
+)
+SELECT last_month.CustomerId, last_month.CustomerFname, CustomerLname,
+	last_month.TrackName, last_month.TrackId, (last_month.unitPrice * last_month.Quantity) AS payment,
+    last_month.InvoiceDate
+from last_month
+LEFT OUTER JOIN
+(
+SELECT customerId, count(*) AS tracks_bought
+FROM last_month
+GROUP BY CustomerId
+) AS sq
+ON sq.customerId = last_month.CustomerId
+WHERE sq.tracks_bought <=5;
 
-#first to see how many tracks are in each playlist
-SELECT pln.name AS playlist_name, count(t.TrackId) AS tracks_in_pl
-FROM playlisttrack AS plt
-	INNER JOIN playlist AS pln
-		ON plt.PlaylistId = pln.PlaylistId
-	LEFT OUTER JOIN track AS t
-		ON plt.TrackId = t.TrackId	
-GROUP BY pln.name
-ORDER BY 2 DESC;
-
-
-#and the actual count of songs and genres
-
-SELECT t.Name AS track_name, COUNT(*) as pl_appearances
-FROM playlisttrack AS plt
-	INNER JOIN track AS t
-		ON plt.trackId = t.trackId
-	INNER JOIN playlist pl
-		ON plt.playlistid = pl.playlistid
-GROUP BY t.Name
-ORDER BY 2 DESC;
-
-SELECT g.Name AS genre_name, COUNT(*) as pl_appearances
-FROM playlisttrack AS plt
-	INNER JOIN track AS t
-		ON plt.trackId = t.trackId
-	INNER JOIN genre AS g
-		ON t.GenreId = g.GenreId
-	INNER JOIN playlist pl
-		ON plt.playlistid = pl.playlistid
-GROUP BY g.Name
-ORDER BY 2 DESC;
+#to do
+#query breakdown
 
