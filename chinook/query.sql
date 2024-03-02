@@ -266,3 +266,38 @@ WHERE sq.tracks_bought <=5;
 #to do
 #query breakdown
 
+
+WITH last_3_months
+AS
+(
+SELECT c.CustomerId AS customerId, c.FirstName AS CustomerFname, c.LastName AS customerLname,
+		line.trackId AS trackId, line.UnitPrice AS unitPrice,
+		line.Quantity AS Quantity, inv.InvoiceDate AS InvoiceDate, t.Name AS trackName
+FROM invoiceline as line
+	LEFT OUTER JOIN invoice AS inv
+		ON line.InvoiceId = inv.InvoiceId
+	LEFT OUTER JOIN TRACK AS t
+		ON t.TrackId = line.TrackId
+	LEFT OUTER JOIN customer AS c
+		ON c.CustomerId = inv.CustomerId
+WHERE inv.InvoiceDate BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 MONTH) AND CURDATE()
+)
+SELECT last_3_months.*, sq.purchase_count, sq.total_payment,
+dense_rank() OVER (ORDER BY sq.total_payment DESC, last_3_months.customerId) AS customer_ranking
+FROM last_3_months
+LEFT OUTER JOIN
+(
+SELECT customerId, count(*) AS purchase_count,
+		sum(unitPrice * quantity) AS total_payment
+FROM last_3_months
+GROUP BY customerId
+HAVING count(*) >=3 AND sum(unitPrice * quantity) >=3
+) AS sq
+ON sq.customerId = last_3_months.customerId
+WHERE sq.purchase_count IS NOT NULL AND sq.total_payment IS NOT NULL
+
+#to do
+#query breakdown
+
+
+
