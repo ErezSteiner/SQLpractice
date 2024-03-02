@@ -266,7 +266,10 @@ WHERE sq.tracks_bought <=5;
 #to do
 #query breakdown
 
+#All customers who bought tracks in the past 3 months, including customer name and title of tracks, but only those who bought at least 3 tracks and
+#spent at least 3$, with customer rankings as well
 
+	
 WITH last_3_months
 AS
 (
