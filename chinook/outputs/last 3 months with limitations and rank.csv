@@ -1,0 +1,88 @@
+customerId,CustomerFname,customerLname,trackId,unitPrice,Quantity,InvoiceDate,trackName,purchase_count,total_payment,customer_ranking
+34,João,Fernandes,1116,0.99,1,"2023-12-22 00:00:00","Expresso 2222",16,15.84,1
+34,João,Fernandes,1118,0.99,1,"2023-12-22 00:00:00",Palco,16,15.84,1
+34,João,Fernandes,1472,0.99,1,"2024-02-01 00:00:00","Radio Song",16,15.84,1
+34,João,Fernandes,1463,0.99,1,"2024-02-01 00:00:00","Journey To Arnhemland",16,15.84,1
+34,João,Fernandes,1454,0.99,1,"2024-02-01 00:00:00","Deeper Underground",16,15.84,1
+34,João,Fernandes,1445,0.99,1,"2024-02-01 00:00:00","Planet Home",16,15.84,1
+34,João,Fernandes,1553,0.99,1,"2024-02-01 00:00:00","You've Got Another Thing Comin'",16,15.84,1
+34,João,Fernandes,1544,0.99,1,"2024-02-01 00:00:00",Cafezinho,16,15.84,1
+34,João,Fernandes,1535,0.99,1,"2024-02-01 00:00:00","No Futuro",16,15.84,1
+34,João,Fernandes,1526,0.99,1,"2024-02-01 00:00:00","Encontrar Alguém",16,15.84,1
+34,João,Fernandes,1517,0.99,1,"2024-02-01 00:00:00","Santa Clara Clareou",16,15.84,1
+34,João,Fernandes,1508,0.99,1,"2024-02-01 00:00:00","Mama Africa",16,15.84,1
+34,João,Fernandes,1499,0.99,1,"2024-02-01 00:00:00","Always With Me, Always With You",16,15.84,1
+34,João,Fernandes,1490,0.99,1,"2024-02-01 00:00:00","Hey Joe",16,15.84,1
+34,João,Fernandes,1481,0.99,1,"2024-02-01 00:00:00","Red House",16,15.84,1
+34,João,Fernandes,1562,0.99,1,"2024-02-01 00:00:00","Comin' Home",16,15.84,1
+55,Mark,Taylor,1249,0.99,1,"2024-01-01 00:00:00","Dance Of Death",14,13.86,2
+55,Mark,Taylor,1258,0.99,1,"2024-01-01 00:00:00","Afraid To Shoot Strangers",14,13.86,2
+55,Mark,Taylor,1267,0.99,1,"2024-01-01 00:00:00","Fear Of The Dark",14,13.86,2
+55,Mark,Taylor,1276,0.99,1,"2024-01-01 00:00:00","09 - Iron Maiden",14,13.86,2
+55,Mark,Taylor,1285,0.99,1,"2024-01-01 00:00:00",Purgatory,14,13.86,2
+55,Mark,Taylor,1294,0.99,1,"2024-01-01 00:00:00",Powerslave,14,13.86,2
+55,Mark,Taylor,1303,0.99,1,"2024-01-01 00:00:00","Die With Your Boots On",14,13.86,2
+55,Mark,Taylor,1312,0.99,1,"2024-01-01 00:00:00","The Evil That Men Do",14,13.86,2
+55,Mark,Taylor,1321,0.99,1,"2024-01-01 00:00:00","Hallowed Be Thy Name",14,13.86,2
+55,Mark,Taylor,1330,0.99,1,"2024-01-01 00:00:00","The Assassin",14,13.86,2
+55,Mark,Taylor,1213,0.99,1,"2024-01-01 00:00:00","The Trooper",14,13.86,2
+55,Mark,Taylor,1222,0.99,1,"2024-01-01 00:00:00","Iron Maiden",14,13.86,2
+55,Mark,Taylor,1231,0.99,1,"2024-01-01 00:00:00","Bring Your Daughter... To The Slaughter",14,13.86,2
+55,Mark,Taylor,1240,0.99,1,"2024-01-01 00:00:00","Dream Of Mirrors",14,13.86,2
+4,Bjørn,Hansen,1662,0.99,1,"2024-02-27 00:00:00","Rock & Roll",9,8.91,3
+4,Bjørn,Hansen,1656,0.99,1,"2024-02-27 00:00:00","For Your Life",9,8.91,3
+4,Bjørn,Hansen,1650,0.99,1,"2024-02-27 00:00:00","Night Flight",9,8.91,3
+4,Bjørn,Hansen,1644,0.99,1,"2024-02-27 00:00:00","Bron-Y-Aur Stomp",9,8.91,3
+4,Bjørn,Hansen,1668,0.99,1,"2024-02-27 00:00:00","Stairway To Heaven",9,8.91,3
+4,Bjørn,Hansen,1638,0.99,1,"2024-02-27 00:00:00","Celebration Day",9,8.91,3
+4,Bjørn,Hansen,1632,0.99,1,"2024-02-27 00:00:00","Living Loving Maid (She's Just A Woman)",9,8.91,3
+4,Bjørn,Hansen,1626,0.99,1,"2024-02-27 00:00:00","How Many More Times",9,8.91,3
+4,Bjørn,Hansen,1620,0.99,1,"2024-02-27 00:00:00","You Shook Me",9,8.91,3
+25,Victor,Stevens,1412,0.99,1,"2024-01-27 00:00:00","Don't Look To The Eyes Of A Stranger",9,8.91,4
+25,Victor,Stevens,1418,0.99,1,"2024-01-27 00:00:00","Papa's Got A Brand New Bag Pt.1",9,8.91,4
+25,Victor,Stevens,1424,0.99,1,"2024-01-27 00:00:00","Hey America",9,8.91,4
+25,Victor,Stevens,1430,0.99,1,"2024-01-27 00:00:00","Living In America",9,8.91,4
+25,Victor,Stevens,1436,0.99,1,"2024-01-27 00:00:00","Hooked Up",9,8.91,4
+25,Victor,Stevens,1388,0.99,1,"2024-01-27 00:00:00","Children of the Damned",9,8.91,4
+25,Victor,Stevens,1394,0.99,1,"2024-01-27 00:00:00","The Prisoner",9,8.91,4
+25,Victor,Stevens,1400,0.99,1,"2024-01-27 00:00:00","The Aftermath",9,8.91,4
+25,Victor,Stevens,1406,0.99,1,"2024-01-27 00:00:00",Futureal,9,8.91,4
+46,Hugh,O'Reilly,1174,0.99,1,"2023-12-27 00:00:00","Civil War",9,8.91,5
+46,Hugh,O'Reilly,1156,0.99,1,"2023-12-27 00:00:00","Anything Goes",9,8.91,5
+46,Hugh,O'Reilly,1162,0.99,1,"2023-12-27 00:00:00","Perfect Crime",9,8.91,5
+46,Hugh,O'Reilly,1168,0.99,1,"2023-12-27 00:00:00","The Garden",9,8.91,5
+46,Hugh,O'Reilly,1204,0.99,1,"2023-12-27 00:00:00","The Pilgrim",9,8.91,5
+46,Hugh,O'Reilly,1198,0.99,1,"2023-12-27 00:00:00","Jacob's Ladder",9,8.91,5
+46,Hugh,O'Reilly,1192,0.99,1,"2023-12-27 00:00:00","L'Arc En Ciel De Miles",9,8.91,5
+46,Hugh,O'Reilly,1186,0.99,1,"2023-12-27 00:00:00","Don't Cry",9,8.91,5
+46,Hugh,O'Reilly,1180,0.99,1,"2023-12-27 00:00:00",Breakdown,9,8.91,5
+19,Tim,Goyer,1382,0.99,1,"2024-01-24 00:00:00","Heaven Can Wait",6,5.94,6
+19,Tim,Goyer,1378,0.99,1,"2024-01-24 00:00:00","Only the Good Die Young",6,5.94,6
+19,Tim,Goyer,1374,0.99,1,"2024-01-24 00:00:00","The Evil That Men Do",6,5.94,6
+19,Tim,Goyer,1370,0.99,1,"2024-01-24 00:00:00","Run To The Hills",6,5.94,6
+19,Tim,Goyer,1366,0.99,1,"2024-01-24 00:00:00","Iron Maiden",6,5.94,6
+19,Tim,Goyer,1362,0.99,1,"2024-01-24 00:00:00","Dream Of Mirrors",6,5.94,6
+40,Dominique,Lefebvre,1138,0.99,1,"2023-12-24 00:00:00","St. Jimmy",6,5.94,7
+40,Dominique,Lefebvre,1142,0.99,1,"2023-12-24 00:00:00",Letterbomb,6,5.94,7
+40,Dominique,Lefebvre,1150,0.99,1,"2023-12-24 00:00:00","Mr. Brownstone",6,5.94,7
+40,Dominique,Lefebvre,1146,0.99,1,"2023-12-24 00:00:00","Welcome to the Jungle",6,5.94,7
+40,Dominique,Lefebvre,1134,0.99,1,"2023-12-24 00:00:00","Jesus Of Suburbia / City Of The Damned / I Don't Care / Dearly Beloved / Tales Of Another Broken Home",6,5.94,7
+40,Dominique,Lefebvre,1130,0.99,1,"2023-12-24 00:00:00","I Am",6,5.94,7
+57,Luis,Rojas,1598,0.99,1,"2024-02-24 00:00:00","The Crunge",6,5.94,8
+57,Luis,Rojas,1602,0.99,1,"2024-02-24 00:00:00","The Ocean",6,5.94,8
+57,Luis,Rojas,1606,0.99,1,"2024-02-24 00:00:00","Hot Dog",6,5.94,8
+57,Luis,Rojas,1614,0.99,1,"2024-02-24 00:00:00","Misty Mountain Hop",6,5.94,8
+57,Luis,Rojas,1610,0.99,1,"2024-02-24 00:00:00","Black Dog",6,5.94,8
+57,Luis,Rojas,1594,0.99,1,"2024-02-24 00:00:00","Wearing And Tearing",6,5.94,8
+15,Jennifer,Peterson,1352,0.99,1,"2024-01-23 00:00:00",Intro,4,3.96,9
+15,Jennifer,Peterson,1354,0.99,1,"2024-01-23 00:00:00","Ghost Of The Navigator",4,3.96,9
+15,Jennifer,Peterson,1356,0.99,1,"2024-01-23 00:00:00",Wrathchild,4,3.96,9
+15,Jennifer,Peterson,1358,0.99,1,"2024-01-23 00:00:00","Blood Brothers",4,3.96,9
+36,Hannah,Schneider,1126,0.99,1,"2023-12-23 00:00:00",Re-Align,4,3.96,10
+36,Hannah,Schneider,1124,0.99,1,"2023-12-23 00:00:00","Make Me Believe",4,3.96,10
+36,Hannah,Schneider,1122,0.99,1,"2023-12-23 00:00:00",Faceless,4,3.96,10
+36,Hannah,Schneider,1120,0.99,1,"2023-12-23 00:00:00","Sítio Do Pica-Pau Amarelo",4,3.96,10
+53,Phil,Hughes,1590,0.99,1,"2024-02-23 00:00:00","Walter's Walk",4,3.96,11
+53,Phil,Hughes,1584,0.99,1,"2024-02-23 00:00:00","That's The Way",4,3.96,11
+53,Phil,Hughes,1586,0.99,1,"2024-02-23 00:00:00","Thank You",4,3.96,11
+53,Phil,Hughes,1588,0.99,1,"2024-02-23 00:00:00","Poor Tom",4,3.96,11
