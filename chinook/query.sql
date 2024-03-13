@@ -134,7 +134,7 @@ WHERE yearly_ranking <=5;
 
 #query breakdown
 #This query uses two CTEs. the first one is essentially identical to the one in the yearly genre sales trend
-#The second CTE contains a similar yoy calculation that I used earlier in additional to a row_number window function.
+#The second CTE contains a  yoy calculation in addition to a row_number window function.
 #the second CTE was wrapped as a CTE purely to allow it to be filtered.
 
 
@@ -200,10 +200,6 @@ HAVING count(*) >=3 AND sum(unitPrice * quantity) >=3
 ) AS sq
 ON sq.customerId = last_3_months.customerId
 WHERE sq.purchase_count IS NOT NULL AND sq.total_payment IS NOT NULL
-
-#to do
-#query breakdown
-
 
 	
 # Top 5 customers 
