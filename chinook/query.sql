@@ -1,6 +1,7 @@
 # data analysis of the chinook DB
 # https://github.com/lerocha/chinook-database
 # Using MySQL
+#This database simulates the database of a digital media store that specializes in music and other audio files like audiobooks
 
 	
 # Yearly genre sales trend, using a CTE
