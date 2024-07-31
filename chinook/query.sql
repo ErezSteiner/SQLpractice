@@ -32,7 +32,8 @@ FROM
   yearly_sales AS current_year
 LEFT OUTER JOIN yearly_sales AS previous_year 
   ON current_year.genreName = previous_year.genreName
-	AND current_year.business_year = previous_year.business_year + 1;
+	AND current_year.business_year = previous_year.business_year + 1
+ORDER BY 2,1;
     
 # Query breakdown
 # Using the CTE allowed me to easily do the yoy change calculation by joining the CTE to itself
